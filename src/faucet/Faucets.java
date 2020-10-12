@@ -31,7 +31,7 @@ public class Faucets {
 			}
 			y = amount[pos_temp_biggest];
 			temp_biggest = 0;
-			//System.out.println(y);
+
 			Order_Of_Amount[Order_Of_Amount_Counter] = pos_temp_biggest;
 			Order_Of_Amount_Counter += 1;
 			z+=1;
@@ -43,12 +43,10 @@ public class Faucets {
 	public static int Get_Best_Faucet() {
 		int x = 0;
 		while( x < max_faucets_to_use) {
-			//System.out.println("Order of amount [x] = " + Order_Of_Amount[x]);
 			
 			if(time_to_use[Order_Of_Amount[x]] < System.currentTimeMillis()) {
 				
 				time_to_use[Order_Of_Amount[x]] = (System.currentTimeMillis() + time[Order_Of_Amount[x]]*1000);
-				//System.out.println("Order of amount [x] = " + Order_Of_Amount[x]);
 				return Order_Of_Amount[x];
 			}
 			
@@ -56,8 +54,6 @@ public class Faucets {
 		}
 		return -1;
 		
-		
-		//System.out.println("Time[0] = " + time_to_use[0]);
 	}
 	
 	
