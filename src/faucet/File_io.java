@@ -46,11 +46,6 @@ public class File_io {
 			FileReader fileReader = new FileReader("Faucets.csv");
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			
-			/*int x = 0;
-			int commacounter = 0;
-			int commaposition[] = new int[2];
-			String shatoshis;
-			*/
 			int x = 0;
 			int commacounter = 0;
 			int commaposition[] = new int[3];
@@ -76,7 +71,6 @@ public class File_io {
 					x+=1;
 				}
 				x=0;
-				//System.out.println(line);
 			}
 			bufferedReader.close();
 			
@@ -92,9 +86,7 @@ public class File_io {
 	
 	public int String_Compare(String A, String B) {
 		//Returns 1 on failure 0 on success
-		
-		//System.out.println("String comparing: " + A + " " + B);
-		
+				
 		int shorter_length;
 		if(A.length() >= B.length()) {
 			shorter_length=B.length();
@@ -115,12 +107,10 @@ public class File_io {
 			B_char = (int)B.charAt(i);
 
 			if(A_char != B_char) {
-				//System.out.println("A and B are not similar because of " + i);
 				return 1;
 			}
 			i+=1;
 		}
-		//System.out.println("A and B are the same");
 		return 0;
 	}
 	
@@ -187,7 +177,6 @@ public class File_io {
 			while((line = bufferedReader.readLine()) != null) {
 				
 				if(line.charAt(0) == '#') {
-					//System.out.println("# line");
 				}
 				else if(String_Compare(line, "Profile1=") == 0) {
 					if(line.length() > 9) {
