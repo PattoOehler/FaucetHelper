@@ -33,13 +33,12 @@ public class Faucets {
 			while(x < amount.length) {
 				//Sorts from biggest to smallest
 				if((amount[x] < y) & (temp_biggest < amount[x])) {
-					//System.out.println("asdf");
+
 					pos_temp_biggest = x;
 					temp_biggest = amount[x];
 					Num_Use_Same_Number =0;
 				}
 				else if((amount[x] != 0)  && (amount[x] == temp_biggest )) {
-					//System.out.println("Amount[x] and temp_biggest are == each other " + amount[x]);
 					SameNumber[Num_Use_Same_Number] = x;
 					
 					Use_Same_Number = true;
@@ -50,13 +49,11 @@ public class Faucets {
 			}
 			y = amount[pos_temp_biggest];
 			temp_biggest = 0;
-			//System.out.println(y);
 			if(Order_Of_Amount_Counter < max_faucets_to_use) {
 				Order_Of_Amount[Order_Of_Amount_Counter] = pos_temp_biggest;
 				Order_Of_Amount_Counter += 1;
 				if(Use_Same_Number) {
 					for(int loop=0; loop<Num_Use_Same_Number; loop++) {
-						//System.out.println("Loop=" + Num_Use_Same_Number);
 						Order_Of_Amount[Order_Of_Amount_Counter] = SameNumber[loop];
 						Order_Of_Amount_Counter += 1;
 					}
@@ -76,12 +73,10 @@ public class Faucets {
 	public static int Get_Best_Faucet() {
 		int x = 0;
 		while( x < max_faucets_to_use) {
-			//System.out.println("Order of amount [x] = " + Order_Of_Amount[x]);
 			
 			if(time_to_use[Order_Of_Amount[x]] < System.currentTimeMillis()) {
 				
 				time_to_use[Order_Of_Amount[x]] = (System.currentTimeMillis() + time[Order_Of_Amount[x]]*1000);
-				//System.out.println("Order of amount [x] = " + Order_Of_Amount[x]);
 				return Order_Of_Amount[x];
 			}
 			
@@ -89,8 +84,6 @@ public class Faucets {
 		}
 		return -1;
 		
-		
-		//System.out.println("Time[0] = " + time_to_use[0]);
 	}
 	
 	
